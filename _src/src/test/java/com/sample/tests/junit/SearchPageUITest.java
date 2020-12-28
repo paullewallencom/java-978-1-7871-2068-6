@@ -1,0 +1,34 @@
+package com.sample.tests.junit;
+
+import java.io.File;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import com.sample.framework.Configuration;
+import com.sample.framework.Driver;
+import com.sample.framework.ui.PageFactory;
+import com.sample.tests.pages.SearchPage;
+
+public class SearchPageUITest extends TestCommon {
+
+    public SearchPageUITest() {
+        // TODO Auto-generated constructor stub
+    }
+
+
+    @Test
+    public void testVerifyUIOnSearchPage() {
+        Assert.assertTrue(searchPage.editDestination.exists());
+        Assert.assertTrue(searchPage.checkoutDayExpand.exists());
+        Assert.assertTrue(searchPage.radioBusiness.exists());
+        Assert.assertTrue(searchPage.radioLeisure.exists());
+        //Assert.assertTrue(searchPage.radioHotels.exists());
+        Assert.assertTrue(searchPage.selectAdultsNumber.exists());
+        Assert.assertTrue(searchPage.buttonSubmit.exists());
+    }
+}

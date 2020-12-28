@@ -1,0 +1,51 @@
+apply plugin: 'java'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+apply plugin: 'maven'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	compile ('org.seleniumhq.selenium:selenium-java:3.0.1') {
+		exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+	}
+   	compile 'junit:junit:4.12'
+   	compile 'org.apache.httpcomponents:httpclient:4.5.2'
+   	compile 'org.testng:testng:6.9.13.6'
+   	compile 'io.appium:java-client:3.2.0'
+   	compile group: 'info.cukes', name: 'cucumber-picocontainer', version: '1.2.5'
+    compile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
+    compile group: 'org.reflections', name: 'reflections', version: '0.9.9-RC1'
+    compile group: 'com.udojava', name: 'EvalEx', version: '1.0'
+    compile group: 'org.codehaus.jettison', name: 'jettison', version: '1.3.7'
+	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
+	compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.14'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
